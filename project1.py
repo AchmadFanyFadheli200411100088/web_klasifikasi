@@ -20,9 +20,9 @@ import altair as alt
 from sklearn.utils.validation import joblib
 
 st.title("PENAMBANGAN DATA")
-st.write("##### Nama  : Ibal Bojay ")
-st.write("##### Nim   : - ")
-st.write("##### Kelas : - ")
+st.write("##### Nama  : Achmad Fany Fadheli ")
+st.write("##### Nim   : 200411100088 ")
+st.write("##### Kelas : Penambahan Data C ")
 data_set_description, upload_data, preporcessing, modeling, implementation = st.tabs(["Data Set Description", "Upload Data", "Prepocessing", "Modeling", "Implementation"])
 
 with data_set_description:
