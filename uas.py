@@ -20,14 +20,14 @@ import altair as alt
 from sklearn.utils.validation import joblib
 
 st.title("PENAMBANGAN DATA")
-st.write("##### Nama  : Hambali Fitrianto ")
-st.write("##### Nim   : 200411100074 ")
+st.write("##### Nama  : Achmad Fany Fadheli ")
+st.write("##### Nim   : 200411100088 ")
 st.write("##### Kelas : Penambangan Data C ")
 data_set_description, upload_data, preporcessing, modeling, implementation = st.tabs(["Data Set Description", "Upload Data", "Prepocessing", "Modeling", "Implementation"])
 
 with data_set_description:
     st.write("""# Data Set Description """)
-    st.write("###### Data Set Ini Adalah : Weather Prediction (Prediksi Cuaca) ")
+    st.write("###### Data Set Ini Adalah : Data for Migraine Classification (Klasifikasi Migrain) ")
     st.write("###### Sumber Data Set dari Kaggle : https://www.kaggle.com/datasets/ananthr1/weather-prediction")
     st.write("""###### Penjelasan setiap kolom : """)
     st.write("""1. preciptation (curah hujan) :
