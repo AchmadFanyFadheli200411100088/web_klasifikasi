@@ -81,6 +81,7 @@ with modeling:
             st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
             
     #KNN
+    from sklearn.neighbors import KNeighborsClassifier
     kn = KNeighborsClassifier(n_neighbors = 1)  
     kn.fit(X_train, y_train)
     predicted = kn.predict(X_test)
