@@ -24,20 +24,20 @@ with upload_data:
     st.write("""# Upload File""")
     uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
-        data = pd.read_csv( uploaded_file.name)
-        st.dataframe(data)
+        df = pd.read_csv( uploaded_file.name)
+        st.dataframe(df)
 
 with preporcessing:
     st.write("""# Preprocessing""")
-    data[["Duration", "Frequency", "Location", "Character"]].agg(['min','max'])
+    df[["Duration", "Frequency", "Location", "Character"]].agg(['min','max'])
 
-    data.data.value_counts()
-    data = df.drop(columns=["age"])
+    df.data.value_counts()
+    df = df.drop(columns=["age"])
 
-    X = data.drop(columns="type")
-    y = data.type
+    X = df.drop(columns="type")
+    y = df.type
     "### Membuang fitur yang tidak diperlukan"
-    data
+    df
 
     le = preprocessing.LabelEncoder()
     le.fit(y)
