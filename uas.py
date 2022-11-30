@@ -98,7 +98,7 @@ with modeling:
         
     #KNN
     from sklearn.neighbors import KNeighborsClassifier
-    kRange = range(10)
+    kRange = range(1,15,1)
     scores_list = []
     for i in kRange:
         kn =  KNeighborsClassifier(n_neighbors = i)
