@@ -68,7 +68,7 @@ with modeling:
     rf.fit(X_train, y_train)
     y_pred_rf=rf.predict(X_test)
 
-    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+    akurasi_rf = round(accuracy_score(y_test,y_pred_rf)*100)
         
             
     #KNN
@@ -77,7 +77,7 @@ with modeling:
     kn.fit(X_train, y_train)
     predicted = kn.predict(X_test)
     
-    akurasi_kn = round(accuracy_score(y_test, predicted.round()*100)
+    akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
     
     if rf :
        if mod :
