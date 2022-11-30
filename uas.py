@@ -81,15 +81,11 @@ with modeling:
             st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
             
     #KNN
-    from sklearn.neighbors import KNeighborsClassifier
-    kRange = range(1,15,1)
-    scores_list = []
-    for i in kRange:
-        kn =  KNeighborsClassifier(n_neighbors = i)
-        kn.fit(X_train_scale,y_train)
-        y_pred_kn = kn.predict(X_test_scale)
-        Acc_KNN=accuracy_score(y_pred_kn, y_test)
-        print('accuracy',Acc_KNN)
+    model = KNeighborsClassifier(n_neighbors = 1)  
+    model.fit(X_train, y_train)
+    predicted = model.predict(X_test)
+    
+    akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
 
 
     import altair as alt
