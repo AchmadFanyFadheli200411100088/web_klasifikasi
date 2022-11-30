@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing
+from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 
@@ -56,6 +57,32 @@ with modeling:
     st.subheader("Berikut ini adalah pilihan untuk Modeling")
     st.write("Pilih Model yang Anda inginkan untuk Cek Akurasi")
     rf = st.checkbox('Random Forest')
-    kn = st.checkbox('K-Nearest Neighbor')
-    des = st.checkbox('Decision Tree')
-    mod = st.button("Modeling")
+
+    #Random Forest
+    from sklearn.ensemble import RandomForestClassifier
+    rf=RandomForestClassifier(n_estimators=10,random_state=42)
+    rf.fit(x_train, y_train)
+    y_pred_rf=rf.predict(x_test)
+    y_pred_rf
+
+    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+
+    if rf :
+        if mod :
+            st.write('Model Naive Bayes accuracy score: {0:0.2f}'. format(akurasi_rf))
+
+    import altair as alt
+    eval = st.button("Evaluasi semua model")
+    if eval :
+        # st.snow()
+        source = pd.DataFrame({
+            'Nilai Akurasi' : [akurasi_rf],
+            'Nama Model' : ['Random Forest']
+        })
+
+        bar_chart = alt.Chart(source).mark_bar().encode(
+            y = 'Nilai Akurasi',
+            x = 'Nama Model'
+        )
+
+        st.altair_chart(bar_chart,use_container_width=True)
