@@ -34,44 +34,28 @@ with preporcessing:
     st.write("""# Preprocessing""")
 
     X= df.drop(['Type'],axis=1)
-    y=df['Type']
+    y= df['Type']
 
     X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
     X_train
 
-    le = preprocessing.LabelEncoder()
-    le.fit(y)
-    y = le.transform(y)
-
-    "### Transformasi Label"
-    y
-
-    le.inverse_transform(y)
-
-    labels = pd.get_dummies(df.data).columns.values.tolist()
-
-    "### Label"
-    labels
+    le = LabelEncoder()
+    y = le.fit_transform(y)
 
     scaler = MinMaxScaler()
-    scaler.fit(X)
-    X = scaler.transform(X)
-    "### Normalize data transformasi"
-    X
+    scaled = scaler.fit_transform(X)
+    st.write("Hasil Preprocesing : ", scaled)
 
-    X.shape, y.shape
-
-    le.inverse_transform(y)
-
-    labels = pd.get_dummies(df.data).columns.values.tolist()
-    
-    "### Label"
-    labels
-
-    scaler = MinMaxScaler()
-    scaler.fit(X)
-    X = scaler.transform(X)
-    X
-
-    X.shape, y.shape
-
+with modeling:
+    X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=4)
+    from sklearn.preprocessing import StandardScaler
+    sc = StandardScaler()
+    X_train = sc.fit_transform(X_train)
+    X_test = sc.transform(X_test)
+    st.write("""# Modeling """)
+    st.subheader("Berikut ini adalah pilihan untuk Modeling")
+    st.write("Pilih Model yang Anda inginkan untuk Cek Akurasi")
+    rf = st.checkbox('Random Forest')
+    kn = st.checkbox('K-Nearest Neighbor')
+    des = st.checkbox('Decision Tree')
+    mod = st.button("Modeling")
