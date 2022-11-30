@@ -69,7 +69,7 @@ with modeling:
 
     if rf :
         if mod :
-            st.write('Model Naive Bayes accuracy score: {0:0.2f}'. format(akurasi_rf))
+            st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
 
     import altair as alt
     eval = st.button("Evaluasi semua model")
