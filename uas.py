@@ -29,7 +29,7 @@ with upload_data:
 
 with preporcessing:
     st.write("""# Preprocessing""")
-    data[["Usia", "Durasi", "Frekuensi", "Lokasi"]].agg(['min','max'])
+    data[["Duration", "Frequency", "Location", "Character"]].agg(['min','max'])
 
     data.data.value_counts()
     data = df.drop(columns=["age"])
