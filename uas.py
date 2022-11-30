@@ -184,8 +184,8 @@ with modeling:
     kRange = range(10)
     scores_list = []
     for i in kRange:
-    knn =  KNeighborsClassifier(n_neighbors = i)
-    knn.fit(X_train_scale,ytrain)
-    ypredr = knn.predict(X_test_scale)
+    kn =  KNeighborsClassifier(n_neighbors = i)
+    kn.fit(X_train_scale,ytrain)
+    ypredr = kn.predict(X_test_scale)
     Acc_KNN=accuracy_score(ypredr, ytest)
     print('accuracy',Acc_KNN)
