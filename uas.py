@@ -50,9 +50,9 @@ with preporcessing:
     y_train
     
     #Random Forest
-    rf=RandomForestClassifier(n_estimators=10,random_state=42)
-    rf.fit(X_train, y_train)
-    y_pred_rf=rf.predict(X_test)
+    model = RandomForestClassifier(n_estimators=10, random_state=42)
+    model.fit(X_train, y_train)
+    y_pred_rf= model.predict(X_test)
     y_pred_rf
     
     akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
@@ -84,9 +84,9 @@ with modeling:
         
             
     #KNN
-    kn = KNeighborsClassifier(n_neighbors = 1)  
-    kn.fit(X_train, y_train)
-    predicted = kn.predict(X_test)
+    model = KNeighborsClassifier(n_neighbors = 1)  
+    model.fit(X_train, y_train)
+    predicted = model.predict(X_test)
     
     akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
     
@@ -130,9 +130,15 @@ with modeling:
                 Frequency,
                 Intensity
                 ]])
+            
             le = joblib.load("le.save")
-            model1 = joblib.load("kn.joblib")
-            y_pred3 = model1.predict(inputs)
+            
+            if akurasi_rf > akurasi_kn:
+                model = joblib.load("rf.joblib")
+
+            elif akurasi_kn > akurasi_rf:
+                model = joblib.load("kn.joblib")
+                
             st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
 
         all = st.button("Submit")
