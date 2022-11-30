@@ -90,27 +90,3 @@ with modeling:
 
         st.altair_chart(bar_chart,use_container_width=True)
         
-  with implementation:
-    st.write("# Implementation")
-    Age = st.number_input('Masukkan age (Usia) : ')
-    Duration = st.number_input('Masukkan duration (Durasi) : ')
-    Frequency = st.number_input('Masukkan frequency (Frekuensi) : ')
-    Intensity = st.number_input('Masukkan intensity (Intensitas) : ')
-
-    def submit():
-        # input
-        inputs = np.array([[
-            Age,
-            Duration,
-            Frequency,
-            Intensity
-            ]])
-        le = joblib.load("le.save")
-        model1 = joblib.load("rf.joblib")
-        y_pred3 = model1.predict(inputs)
-        st.write(f"Berdasarkan data yang di masukkan, maka pasien : {le.inverse_transform(y_pred3)[0]}")
-
-    all = st.button("Submit")
-    if all :
-        st.balloons()
-        submit()
