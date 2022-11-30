@@ -67,7 +67,6 @@ with modeling:
     rf=RandomForestClassifier(n_estimators=10,random_state=42)
     rf.fit(X_train, y_train)
     y_pred_rf=rf.predict(X_test)
-    y_pred_rf
 
     akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
         
