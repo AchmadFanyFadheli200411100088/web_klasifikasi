@@ -57,8 +57,8 @@ with modeling:
     X_test = sc.transform(X_test)
     
     scaler=StandardScaler()
-    X_train_scale=scaler.fit_transform(xtrain)
-    X_test_scale = scaler.transform(xtest)
+    X_train_scale=scaler.fit_transform(X_train)
+    X_test_scale = scaler.transform(X_test)
     
     st.write("""# Modeling """)
     st.subheader("Berikut ini adalah pilihan untuk Modeling")
