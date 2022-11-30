@@ -48,7 +48,7 @@ with preporcessing:
     rf.fit(X_train, y_train)
     y_pred_rf=rf.predict(X_test)
     y_pred_rf
-    
+    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
 
     le = LabelEncoder()
     y = le.fit_transform(y)
@@ -72,7 +72,7 @@ with modeling:
 
     #Random Forest
 
-    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+    
         
             
     #KNN
