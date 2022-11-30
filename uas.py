@@ -83,9 +83,9 @@ with modeling:
     from sklearn.ensemble import RandomForestClassifier
     model = RandomForestClassifier(n_estimators=10, random_state=42)
     model.fit(X_train, y_train)
-    predicted=rf.predict(X_test)
+    y_pred_rf = rf.predict(X_test)
 
-    akurasi_rf = round(accuracy_score(y_test, predicted)*100)
+    akurasi_rf = round(accuracy_score(y_test, y_pred_rf)*100)
         
             
     #KNN
