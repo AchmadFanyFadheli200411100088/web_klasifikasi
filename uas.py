@@ -75,10 +75,7 @@ with modeling:
     y_pred_rf
 
     akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
-
-    if rf :
-        if mod :
-            st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
+        
             
     #KNN
     from sklearn.neighbors import KNeighborsClassifier
@@ -87,6 +84,14 @@ with modeling:
     predicted = kn.predict(X_test)
     
     akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
+    
+     if rf :
+        if mod :
+            st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
+            
+     if kn :
+        if mod:
+            st.write("Model K-Nearest Neighbor accuracy score : {0:0.2f}" . format(akurasi_kn))      
 
 
     import altair as alt
