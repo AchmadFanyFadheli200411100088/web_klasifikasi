@@ -85,13 +85,13 @@ with modeling:
     
     akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
     
-     if rf :
-        if mod :
-            st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
+    if rf :
+       if mod :
+           st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
             
-     if kn :
-        if mod:
-            st.write("Model K-Nearest Neighbor accuracy score : {0:0.2f}" . format(akurasi_kn))      
+    if kn :
+       if mod:
+           st.write("Model K-Nearest Neighbor accuracy score : {0:0.2f}" . format(akurasi_kn))      
 
 
     import altair as alt
