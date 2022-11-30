@@ -61,7 +61,7 @@ with modeling:
     #Random Forest
     from sklearn.ensemble import RandomForestClassifier
     rf=RandomForestClassifier(n_estimators=10,random_state=42)
-    rf.fit(x_train, y_train)
+    rf.fit(X_train, y_train)
     y_pred_rf=rf.predict(x_test)
     y_pred_rf
 
