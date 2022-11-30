@@ -1,4 +1,3 @@
-import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing
@@ -6,6 +5,13 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+
+from sklearn.preprocessing import StandardScaler
+
+import streamlit as st
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 from sklearn.utils.validation import joblib
 
@@ -43,12 +49,7 @@ with preporcessing:
     X_train
     y_train
     
-    from sklearn.ensemble import RandomForestClassifier
-    rf=RandomForestClassifier(n_estimators=10,random_state=42)
-    rf.fit(X_train, y_train)
-    y_pred_rf=rf.predict(X_test)
-    y_pred_rf
-    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+    
 
     le = LabelEncoder()
     y = le.fit_transform(y)
@@ -71,12 +72,15 @@ with modeling:
     mod = st.button("Modeling")
 
     #Random Forest
-
+    rf=RandomForestClassifier(n_estimators=10,random_state=42)
+    rf.fit(X_train, y_train)
+    y_pred_rf=rf.predict(X_test)
+    y_pred_rf
+    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
     
         
             
     #KNN
-    from sklearn.neighbors import KNeighborsClassifier
     kn = KNeighborsClassifier(n_neighbors = 1)  
     kn.fit(X_train, y_train)
     predicted = kn.predict(X_test)
