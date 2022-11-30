@@ -131,9 +131,9 @@ with modeling:
                 Intensity
                 ]])
             le = joblib.load("le.save")
-            model1 = joblib.load("knn.joblib")
+            model1 = joblib.load("kn.joblib")
             y_pred3 = model1.predict(inputs)
-            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi cuaca : {le.inverse_transform(y_pred3)[0]}")
+            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
 
         all = st.button("Submit")
         if all :
