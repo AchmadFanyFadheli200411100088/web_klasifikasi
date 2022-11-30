@@ -48,13 +48,6 @@ with preporcessing:
     X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
     X_train
     y_train
-
-    le = LabelEncoder()
-    y = le.fit_transform(y)
-
-    scaler = MinMaxScaler()
-    scaled = scaler.fit_transform(X)
-    st.write("Hasil Preprocesing : ", scaled)
     
     #Random Forest
     rf=RandomForestClassifier(n_estimators=10,random_state=42)
@@ -63,6 +56,14 @@ with preporcessing:
     y_pred_rf
     
     akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+
+    le = LabelEncoder()
+    y = le.fit_transform(y)
+
+    scaler = MinMaxScaler()
+    scaled = scaler.fit_transform(X)
+    st.write("Hasil Preprocesing : ", scaled)
+    
     
 
 with modeling:
