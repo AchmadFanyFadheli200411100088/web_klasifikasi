@@ -103,6 +103,6 @@ with modeling:
     for i in kRange:
         kn =  KNeighborsClassifier(n_neighbors = i)
         kn.fit(X_train_scale,y_train)
-        ypredr = kn.predict(X_test_scale)
-        Acc_KNN=accuracy_score(y_predr, y_test)
+        y_pred_kn = kn.predict(X_test_scale)
+        Acc_KNN=accuracy_score(y_pred_kn, y_test)
         print('accuracy',Acc_KNN)
