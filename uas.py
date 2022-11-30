@@ -1,11 +1,18 @@
-import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
+
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+
+import streamlit as st
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+import altair as alt
 
 from sklearn.utils.validation import joblib
 
@@ -51,7 +58,6 @@ with preporcessing:
 
 with modeling:
     X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=4)
-    from sklearn.preprocessing import StandardScaler
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)  
@@ -64,17 +70,16 @@ with modeling:
 
     #Random Forest
     from sklearn.ensemble import RandomForestClassifier
-    rf=RandomForestClassifier(n_estimators=10,random_state=42)
-    rf.fit(X_train, y_train)
+    model = RandomForestClassifier(n_estimators=10, random_state=42)
+    model.fit(X_train, y_train)
     predicted=rf.predict(X_test)
 
-    akurasi_rf = round(accuracy_score(y_test,predicted)*100)
+    akurasi_rf = round(accuracy_score(y_test, predicted)*100)
         
             
     #KNN
-    from sklearn.neighbors import KNeighborsClassifier
-    kn = KNeighborsClassifier(n_neighbors = 1)  
-    kn.fit(X_train, y_train)
+    model = KNeighborsClassifier(n_neighbors = 1)  
+    model.fit(X_train, y_train)
     predicted = kn.predict(X_test)
     
     akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
@@ -88,7 +93,6 @@ with modeling:
            st.write("Model K-Nearest Neighbor accuracy score : {0:0.2f}" . format(akurasi_kn))      
 
 
-    import altair as alt
     eval = st.button("Evaluasi semua model")
     if eval :
         # st.snow()
