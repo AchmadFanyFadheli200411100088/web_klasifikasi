@@ -181,7 +181,7 @@ with modeling:
         
     #KNN
     from sklearn.neighbors import KNeighborsClassifier
-    kRange = range(1,15,1)
+    kRange = range(10)
     scores_list = []
     for i in kRange:
     knn =  KNeighborsClassifier(n_neighbors = i)
