@@ -32,7 +32,12 @@ with upload_data:
 
 with preporcessing:
     st.write("""# Preprocessing""")
-    df[["Age", "Duration", "Frequency", "Intensity", "Character"]].agg(['min','max'])
+
+    X= df.drop(['Type'],axis=1)
+    y=df['Type']
+
+    X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
+    X_train
 
     le = preprocessing.LabelEncoder()
     le.fit(y)
@@ -70,4 +75,3 @@ with preporcessing:
 
     X.shape, y.shape
 
-    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=0)
