@@ -57,6 +57,7 @@ with modeling:
     st.subheader("Berikut ini adalah pilihan untuk Modeling")
     st.write("Pilih Model yang Anda inginkan untuk Cek Akurasi")
     rf = st.checkbox('Random Forest')
+    mod = st.button("Modeling")
 
     #Random Forest
     from sklearn.ensemble import RandomForestClassifier
