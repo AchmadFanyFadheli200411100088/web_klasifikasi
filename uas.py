@@ -7,6 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+from sklearn.utils.validation import joblib
+
 st.title("PENAMBANGAN DATA")
 st.write("##### Nama  : Achmad Fany Fadheli ")
 st.write("##### Nim   : 200411100088 ")
