@@ -81,9 +81,9 @@ with modeling:
             st.write('Model Random Forest accuracy score: {0:0.2f}'. format(akurasi_rf))
             
     #KNN
-    model = KNeighborsClassifier(n_neighbors = 1)  
-    model.fit(X_train, y_train)
-    predicted = model.predict(X_test)
+    kn = KNeighborsClassifier(n_neighbors = 1)  
+    kn.fit(X_train, y_train)
+    predicted = kn.predict(X_test)
     
     akurasi_kn = round(accuracy_score(y_test, predicted.round())*100)
 
