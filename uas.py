@@ -97,8 +97,8 @@ with modeling:
     if eval :
         # st.snow()
         source = pd.DataFrame({
-            'Nilai Akurasi' : [akurasi_rf],
-            'Nama Model' : ['Random Forest']
+            'Nilai Akurasi' : [akurasi_rf,akurasi_kn],
+            'Nama Model' : ['Random Forest','KNN']
         })
 
         bar_chart = alt.Chart(source).mark_bar().encode(
