@@ -1,23 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn import preprocessing
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from numpy import array
-from sklearn import tree
-from sklearn.naive_bayes import GaussianNB
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, precision_score, f1_score
-from sklearn.tree import DecisionTreeClassifier
-from collections import OrderedDict
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import BaggingClassifier
-from sklearn.datasets import make_classification
-from sklearn.svm import SVC
-import altair as alt
-from sklearn.utils.validation import joblib
+from sklearn.model_selection import train_test_split
+from matplotlib import pyplot as plt
+from tensorflow.keras.utils import to_categorical
+
 
 st.title("PENAMBANGAN DATA")
 st.write("##### Nama  : Achmad Fany Fadheli ")
@@ -27,64 +17,32 @@ data_set_description, upload_data, preporcessing, modeling, implementation = st.
 
 with data_set_description:
     st.write("""# Data Set Description """)
-    st.write("###### Data Set Ini Adalah : Weather Prediction (Prediksi Cuaca) ")
-    st.write("###### Sumber Data Set dari Kaggle : https://www.kaggle.com/datasets/ananthr1/weather-prediction")
+    st.write("###### Data Set Ini Adalah : Migraine Classification (Klasifikasi Migrain) ")
+    st.write("###### Sumber Data Set dari Kaggle : https://www.kaggle.com/datasets/weinoose/migraine-classification")
     st.write("""###### Penjelasan setiap kolom : """)
-    st.write("""1. preciptation (curah hujan) :
+    st.write("""1. Klasifikasi Migrain :
 
-    Semua bentuk di mana air jatuh di permukaan tanah dan badan air terbuka seperti hujan, hujan es, salju, hujan es, atau gerimis
+    dataset ini disediakan untuk pengguna yang ingin mengembangkan praktik jaringan saraf mereka berdasarkan dataset numerik seperti ini. Kumpulan data ini dikumpulkan dari lebih banyak klien.
     """)
-    st.write("""2. tempmax (suhu maks) :
-
-    Suhu Maksimum
-    """)
-    st.write("""3. tempmin (suhu min) :
-
-    Suhu Minimum
-    """)
-    st.write("""4. wind (angin) :
-
-    Kecepatan angin
-    """)
-    st.write("""5. weather (cuaca) :
-
-    Output (keluaran)
-    """)
-    st.write("""Menggunakan Kolom (input) :
-
-    precipitation
-    tempmax * tempmin
-    wind
-    """)
-    st.write("""Memprediksi kondisi cuaca (output) :
-
-    1. drizzle (gerimis)
-    2. rain (hujan)
-    3. sun (matahari)
-    4. snow (salju)
-    5. fog (kabut)
-    """)
-    st.write("###### Aplikasi ini untuk : Weather Prediction (Prediksi Cuaca) ")
-    st.write("###### Source Code Aplikasi ada di Github anda bisa acces di link : https://github.com/HambaliFitrianto/Aplikasi-Web-Data-Mining-Weather-Prediction ")
-    st.write("###### Untuk Wa saya anda bisa hubungi nomer ini : http://wa.me/6282138614807 ")
+   
 
 with upload_data:
     st.write("""# Upload File""")
     uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
-        df = pd.read_csv(uploaded_file)
-        st.write("Nama File Anda = ", uploaded_file.name)
+        df = pd.read_csv(https://raw.githubusercontent.com/AchmadFanyFadheli200411100088/web_klasifikasi/main/data.csv)
+        st.write("Nama File Anda = ", data.name)
         st.dataframe(df)
 
 with preporcessing:
     st.write("""# Preprocessing""")
-    df[["precipitation", "temp_max", "temp_min", "wind"]].agg(['min','max'])
+    df[["Usia", "Durasi", "Frekuensi", "Lokasi"]].agg(['min','max'])
 
-    df.weather.value_counts()
-    df = df.drop(columns=["date"])
+    df.data.value_counts()
+    df = df.drop(columns=["age"])
 
-    X = df.drop(columns="weather")
-    y = df.weather
+    X = df.drop(columns="type")
+    y = df.data
     "### Membuang fitur yang tidak diperlukan"
     df
 
@@ -97,7 +55,7 @@ with preporcessing:
 
     le.inverse_transform(y)
 
-    labels = pd.get_dummies(df.weather).columns.values.tolist()
+    labels = pd.get_dummies(df.data).columns.values.tolist()
 
     "### Label"
     labels
@@ -112,7 +70,7 @@ with preporcessing:
 
     le.inverse_transform(y)
 
-    labels = pd.get_dummies(df.weather).columns.values.tolist()
+    labels = pd.get_dummies(df.data).columns.values.tolist()
     
     "### Label"
     labels
