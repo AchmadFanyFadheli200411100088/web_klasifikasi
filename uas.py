@@ -55,6 +55,11 @@ with modeling:
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
+    
+    scaler=StandardScaler()
+    X_train_scale=scaler.fit_transform(xtrain)
+    X_test_scale = scaler.transform(xtest)
+    
     st.write("""# Modeling """)
     st.subheader("Berikut ini adalah pilihan untuk Modeling")
     st.write("Pilih Model yang Anda inginkan untuk Cek Akurasi")
