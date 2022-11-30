@@ -55,7 +55,14 @@ with preporcessing:
     y_pred_rf= model.predict(X_test)
     y_pred_rf
     
+    from sklearn.metrics import classification_report,confusion_matrix,accuracy_score
+    cm = confusion_matrix(y_test,y_pred_rf)
+    print(cm)
+    
     akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+    
+    print(classification_report(y_test, y_pred_rf))
+    
 
     le = LabelEncoder()
     y = le.fit_transform(y)
