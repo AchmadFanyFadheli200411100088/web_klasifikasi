@@ -139,6 +139,7 @@ with modeling:
             elif akurasi_kn > akurasi_rf:
                 model = joblib.load("kn.joblib")
                 
+            y_pred3 = model.predict(inputs)    
             st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
 
         all = st.button("Submit")
