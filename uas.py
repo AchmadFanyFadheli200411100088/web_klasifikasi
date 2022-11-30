@@ -110,3 +110,29 @@ with modeling:
 
         st.altair_chart(bar_chart,use_container_width=True)
         
+    with implementation:
+        st.write("# Implementation")
+        Age = st.number_input('Masukkan Age (Usia) : ')
+        Duration = st.number_input('Masukkan Duration (Durasi) : ')
+        Frequency = st.number_input('Masukkan Frequency (Frekuensi) : ')
+        Intensity = st.number_input('Masukkan Intensity (Intensitas) : ')
+
+        def submit():
+            # input
+            inputs = np.array([[
+                Age,
+                Duration,
+                Frequency,
+                Intensity
+                ]])
+            le = joblib.load("le.save")
+            model1 = joblib.load("knn.joblib")
+            y_pred3 = model1.predict(inputs)
+            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi cuaca : {le.inverse_transform(y_pred3)[0]}")
+
+        all = st.button("Submit")
+        if all :
+            st.balloons()
+            submit()
+
+        
