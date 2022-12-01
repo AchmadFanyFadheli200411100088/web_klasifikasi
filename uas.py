@@ -51,13 +51,13 @@ with preporcessing:
     #Random Forest
     model = RandomForestClassifier(n_estimators=10, random_state=42)
     model.fit(X_train, y_train)
-    y_pred_rf= model.predict(X_test)
+    predicted= model.predict(X_test)
     y_pred_rf
     
     cm = confusion_matrix(y_test,y_pred_rf)
     print(cm)
     
-    akurasi_rf = round( accuracy_score(y_test,y_pred_rf)*100)
+    akurasi_rf = round( accuracy_score(y_test,predicted)*100)
     
     print(classification_report(y_test, y_pred_rf))
     
