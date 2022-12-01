@@ -69,16 +69,6 @@ with preporcessing:
     scaled = scaler.fit_transform(X)
     st.write("Hasil Preprocesing : ", scaled)
     
-    "### Splitting the dataset into training and testing data"
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= 0.2, random_state= 0)
-    st.write("Shape for training data", X_train.shape, y_train.shape)
-    st.write("Shape for testing data", X_test.shape, y_test.shape)
-
-    "### Feature Scaling"
-    scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
-    X_train,X_test
     
 
 with modeling:
@@ -154,8 +144,8 @@ with modeling:
             elif akurasi_kn > akurasi_rf:
                 model = joblib.load("kn.joblib")
                 
-            y_pred3 = model.predict()    
-            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
+            y_pred_rf = model.predict()    
+            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred_rf)[0]}")
 
         all = st.button("Submit")
         if all :
