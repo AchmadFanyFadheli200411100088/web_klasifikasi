@@ -133,6 +133,7 @@ with modeling:
                 Age,
                 Duration,
                 Frequency,
+                location,
                 Intensity
                 ]])
             
