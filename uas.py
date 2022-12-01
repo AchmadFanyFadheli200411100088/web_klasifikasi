@@ -144,8 +144,8 @@ with modeling:
             elif akurasi_kn > akurasi_rf:
                 model = joblib.load("kn.joblib")
                 
-            y_pred2 = model.predict(X, y)    
-            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred2)[0]}")
+            y_pred3 = model.predict(X, y)    
+            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
 
         all = st.button("Submit")
         if all :
