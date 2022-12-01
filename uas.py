@@ -148,6 +148,8 @@ with modeling:
                 
             y_pred_rf = model.predict()    
             st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred_rf)[0]}")
+            st.write("0 = Tidak menderita penyakit migrain")
+            st.write("1 = menderita penyakit migrain")
 
         all = st.button("Submit")
         if all :
