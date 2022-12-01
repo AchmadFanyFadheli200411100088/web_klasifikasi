@@ -125,6 +125,7 @@ with modeling:
         Age = st.number_input('Masukkan Age (Usia) : ')
         Duration = st.number_input('Masukkan Duration (Durasi) : ')
         Frequency = st.number_input('Masukkan Frequency (Frekuensi) : ')
+        Location = st.number_input('Masukkan Location (Location) : ')
         Intensity = st.number_input('Masukkan Intensity (Intensitas) : ')
 
         def submit():
@@ -133,7 +134,7 @@ with modeling:
                 Age,
                 Duration,
                 Frequency,
-                location,
+                Location,
                 Intensity
                 ]])
             
