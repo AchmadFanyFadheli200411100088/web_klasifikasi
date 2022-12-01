@@ -150,6 +150,6 @@ with modeling:
         all = st.button("Submit")
         if all :
             st.balloons()
-            submit()
+            submit(X, y)
 
         
