@@ -126,7 +126,25 @@ with modeling:
         Duration = st.number_input('Masukkan Duration (Durasi) : ')
         Frequency = st.number_input('Masukkan Frequency (Frekuensi) : ')
         Location = st.number_input('Masukkan Location (Location) : ')
-        Intensity = st.number_input('Masukkan Intensity (Intensitas) : ')
+        Character = = st.number_input('Masukkan Intensity (Character) : ')
+        Intensity = st.number_input('Masukkan Intensity (Intensity) : ')
+        Nausea = st.number_input('Masukkan Intensity (Nausea) : ')
+        Vomit = st.number_input('Masukkan Intensity (Vomit) : ')
+        Phonophobia = st.number_input('Masukkan Intensity (Phonophobia) : ')
+        Photophobia = st.number_input('Masukkan Intensity (Photophobia) : ')
+        Visual = st.number_input('Masukkan Intensity (Visual) : ')
+        Sensory = st.number_input('Masukkan Intensity (Sensory) : ')
+        Dysphasia = st.number_input('Masukkan Intensity (Dysphasia) : ')
+        Dysarthria = st.number_input('Masukkan Intensity (Dysarthria) : ')
+        Vertigo = st.number_input('Masukkan Intensity (Vertigo) : ')
+        Tinnitus = st.number_input('Masukkan Intensity (Tinnitus) : ')
+        Hypoacusis = st.number_input('Masukkan Intensity (Hypoacusis) : ')
+        Diplopia = st.number_input('Masukkan Intensity (Diplopia) : ')
+        Defect = st.number_input('Masukkan Intensity (Defect) : ')
+        Ataxia = st.number_input('Masukkan Intensity (Ataxia) : ')
+        Conscience = st.number_input('Masukkan Intensity (Conscience) : ')
+        Paresthesia = st.number_input('Masukkan Intensity (Paresthesia) : ')
+        DPF = st.number_input('Masukkan Intensity (DPF) : ')
 
         def submit():
             # input
@@ -135,7 +153,25 @@ with modeling:
                 Duration,
                 Frequency,
                 Location,
-                Intensity
+                Character,
+                Intensity,
+                Nausea,
+                Vomit,
+                Phonophobia,
+                Photophobia,
+                Visual,
+                Sensory,
+                Dysphasia,
+                Dysarthria,
+                Vertigo,
+                Tinnitus,
+                Hypoacusis,
+                Diplopia,
+                Defect,
+                Ataxia,
+                Conscience,
+                Paresthesia,
+                DPF,
                 ]])
             
             le = joblib.load("le.save")
@@ -146,8 +182,8 @@ with modeling:
             elif akurasi_kn > akurasi_rf:
                 model = joblib.load("kn.joblib")
                 
-            y_pred_rf = model.predict()    
-            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred_rf)[0]}")
+            y_pred3 = model.predict(inputs)    
+            st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred3)[0]}")
             st.write("0 = Tidak menderita penyakit migrain")
             st.write("1 = menderita penyakit migrain")
 
