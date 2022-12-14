@@ -41,9 +41,9 @@ with upload_data:
 with preporcessing:
     st.write("""# Preprocessing""")
     
-    x = df.iloc[:, 1:-1].values
-    y = df.iloc[:, -1].values
-    x,y
+    X = df.drop(columns="Type")
+    y = df.Type
+
 
     X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
     X_train
