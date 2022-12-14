@@ -172,7 +172,7 @@ with modeling:
                 Ataxia,
                 Conscience,
                 Paresthesia,
-                DPF,
+                DPF
                 ]])
             
             le = joblib.load("le.save")
