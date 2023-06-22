@@ -127,7 +127,7 @@ with modeling:
         Duration = st.number_input('Masukkan Duration (Durasi) : ')
         Frequency = st.number_input('Masukkan Frequency (Frekuensi) : ')
         Location = st.number_input('Masukkan Location (Location) : ')
-        Character = = st.number_input('Masukkan Intensity (Character) : ')
+        Character = st.number_input('Masukkan Intensity (Character) : ')
         Intensity = st.number_input('Masukkan Intensity (Intensity) : ')
         Nausea = st.number_input('Masukkan Intensity (Nausea) : ')
         Vomit = st.number_input('Masukkan Intensity (Vomit) : ')
